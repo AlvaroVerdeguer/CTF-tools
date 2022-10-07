@@ -1,1 +1,39 @@
 https://www.wifi-libre.com/topic-1033-puesta-en-marcha-y-funcionamiento-basico-de-metasploit-en-kali-linux.html
+
+terminologia:
+  exploit
+    codigo que se aprovecha de vulnerabilidades para irrumpir unautorizadamente en el sistema
+    
+  Auxiliar
+    herramientas que te ayudan a buscar fallos, como pueden ser fuzzers, crawlers,scanners,..
+    
+  vulnerabilidad
+    un fallo en el diseño / construccion del sistema.
+    
+  encoder
+    o tambien conocido en castellano como ofuscador, son herramientas que nos permiten recodificar el codigo del exploit/paylaod para que no sea detectado
+    por antivirus que lo que hacen es comprar el codigo en ejecucion con el codigo de otras vulnerabilidades en busca de similitudes.
+    
+  evasion
+    los modulos de evasion se dedican unicamente a intentar evitar los sistemas de seguirdad de la victima.
+    
+  NOP 
+    Los NOP o NOP-sled son instrucciones sin operación que simplemente deslizan la ejecución del programa a la siguiente dirección de memoria.
+    Usamos NOP para llegar al lugar deseado en las direcciones de memoria.
+    
+  Shell
+    una cmd que nos permite ejecutar comandos en el sistema de la victima
+    
+  Payload
+    Si la vulnerabilidad es el fallo que hemos encontrado y el exploit nos permite hacer uso de el, el payload es lo que nos permite enviar la conexion de la shell por ejemplo
+    
+    
+   Para diferenciar entre un Inline payload y un staged payload hay que ver que simbolo hay entre la palabra shell y lo demas, si es "_" es INLINE y si es "/" es STAGED
+      
+    generic/shell_reverse_tcp INLINE
+    windows/x64/shell/reverse_tcp STAGED
+    
+    La diferencia entre 'staged' y 'stagers' es muy simple, los payloads 'staged' utilizan pequeños 'stagers' para poder ajustarse en pequeños espacios de explotación.
+    Durante la explotación, el desarrollador del exploit por lo regular tiene una muy limitada cantidad de memoria que pueda manipular a través de las entradas de los programas que están explotando. 
+    Los stagers van en este espacio y su único trabajo derribar el resto del payload 'staged'. La desventaja de este tipo de payloads es que requieren una conexión a algo que les palanqueará el resto del payload. 
+    Los payloads Inline o 'singles' no tienen este problema. Estos se encuentran auto-contenidos y hacen lo que estan diseñados a hacer sin asistencia alguna.
